@@ -4,13 +4,14 @@ import axios from 'axios'
 import { useState,useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Mensaje from '../componets/Alertas/Mensaje'
+import {useForm} from 'react-hook-form'
 
 
 const Login = () => {
     const {auth, setAuth} = useContext(AuthContext)
     const navigate = useNavigate()
     const [mensaje, setMensaje] = useState({})
-
+    const {register, formState: {errors}, handleSubmit} = useForm()
     const [form, setform] = useState({
         email: "",
         password: ""
@@ -22,8 +23,8 @@ const Login = () => {
         })
     }
 
-	const handleSubmit = async(e) => { 
-	        e.preventDefault()
+	const onSubmit = async(e) => { 
+	        //e.preventDefault()
             const url = form.password.includes("vet")
             ? `${import.meta.env.VITE_BACKEND_URL}/paciente/login`
             : `${import.meta.env.VITE_BACKEND_URL}/login`
@@ -55,21 +56,25 @@ const Login = () => {
                     <small className="text-gray-400 block my-4 text-sm">Bienvenido! Ingresa tus credenciales</small>
 
 
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="mb-3">
                             <label className="mb-2 block text-sm font-semibold">Correo electrónico</label>
-                            <input type="email" placeholder="Ingresa tu correo electrónico" 
-                            name='email'
-                            value={form.email || ""} onChange={handleChange}
+                            <input type="email" 
+                            name = 'email'
+                            {...register('email', {required : true})}
+                            placeholder="Ingresa tu correo electrónico" 
+                            value = {form.email || ""} onChange={handleChange}
                             className="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-2 text-gray-500" />
+                            {errors.email?.type === 'required' && <p className="text-gray-400 my-2 text-xs">Correo necesario</p>}
                         </div>
 
                         <div className="mb-3">
                             <label className="mb-2 block text-sm font-semibold">Contraseña</label>
                             <input type="password" placeholder="********************" 
-                            name='password'
+                            {...register('password', {required: true})}
                             value={form.password || ""} onChange={handleChange}
                             className="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-2 text-gray-500" />
+                            {errors.password?.type === 'required' && <p className="text-gray-400 my-2 text-xs">Contraseña necesaria</p>}
                         </div>
 
                         <div className="my-4">

@@ -80,9 +80,8 @@ export const Formulario = ({paciente}) => {
                     className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md mb-5'
                     placeholder='nombre de la mascota'
                     name='nombre'
-                    value = {form.nombre}
-                    onChange={handleChange}
                     {...register("nombre", {required: true})}
+                    value = {form.nombre} onChange={handleChange}
                 />
                 {errors.nombre?.type === 'required' && <p className="text-gray-400 my-2 text-xs">Campo requerido</p>}
             </div>
@@ -96,9 +95,8 @@ export const Formulario = ({paciente}) => {
                     className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md mb-5'
                     placeholder='nombre del propietario'
                     name='propietario'
-                    value = {form.propietario}
-                    onChange={handleChange}
                     {...register("propietario", {required: true})}
+                    value = {form.propietario} onChange={handleChange}
                 />
                 {errors.propietario?.type === 'required' && <p className="text-gray-400 my-2 text-xs">Campo requerido</p>}
             </div>
@@ -112,9 +110,8 @@ export const Formulario = ({paciente}) => {
                     className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md mb-5'
                     placeholder='email del propietario'
                     name='email'
-                    value={form.email}
-                    onChange={handleChange}
                     {...register("email", {required: true})}
+                    value={form.email} onChange={handleChange}
                 />
                 {errors.email?.type === 'required' && <p className="text-gray-400 my-2 text-xs">Campo requerido</p>}
             </div>
@@ -128,9 +125,8 @@ export const Formulario = ({paciente}) => {
                     className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md mb-5'
                     placeholder='celular del propietario'
                     name='celular'
-                    value={form.celular}
-                    onChange={handleChange}
                     {...register("celular", {required: true})}
+                    value={form.celular} onChange={handleChange}
                 />
                 {errors.celular?.type === 'required' && <p className="text-gray-400 my-2 text-xs">Campo requerido</p>}
             </div>
@@ -173,9 +169,8 @@ export const Formulario = ({paciente}) => {
                     className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md mb-5'
                     placeholder='Ingrese los síntomas de la mascota'
                     name='sintomas'
-                    value = {form.sintomas}
-                    onChange={handleChange}
                     {...register("sintomas", {required: true})}
+                    value = {form.sintomas} onChange={handleChange}
                 />
                 {errors.sintomas?.type === 'required' && <p className="text-gray-400 my-2 text-xs">Campo requerido</p>}
             </div>

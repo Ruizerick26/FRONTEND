@@ -5,7 +5,7 @@ const Chat = () => {
     const [mensaje, setMensaje] = useState("")
     const [socket, setSocket] = useState(null);
     useEffect(() => {
-        const newSocket = io('http://localhost:3000')
+        const newSocket = io("https://veterinario-epn-g2.onrender.com")
         setSocket(newSocket)
         return () => {
             newSocket.disconnect();

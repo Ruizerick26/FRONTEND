@@ -4,6 +4,7 @@ import io from 'socket.io-client';
 const Chat = () => {  
     const [mensaje, setMensaje] = useState("")
     const [socket, setSocket] = useState(null);
+    
     useEffect(() => {
         const newSocket = io("https://veterinario-epn-g2.onrender.com")
         setSocket(newSocket)

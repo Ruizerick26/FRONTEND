@@ -32,7 +32,7 @@ const Password = () => {
 
 				if (form.passwordnuevo.length < 6)
         {
-            setMensaje({ respuesta: "El password debe tener mínimo 6 carácteres", tipo: false })
+            setMensaje({ respuesta: "La contraseña debe tener mínimo 6 carácteres", tipo: false })
                 setTimeout(() => {
                     setMensaje({})
                 }, 3000);
@@ -73,7 +73,7 @@ const Password = () => {
             <div>
                 <label
                     htmlFor='passwordnuevo'
-                    className='text-gray-700 uppercase font-bold text-sm'>Nuevo contraseña: </label>
+                    className='text-gray-700 uppercase font-bold text-sm'>Nueva contraseña: </label>
                 <input
                     id='passwordnuevo'
                     type="password"
